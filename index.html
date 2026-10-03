@@ -72,50 +72,105 @@ a{color:#000}
 .foot{padding-bottom:0;margin-top:1.5rem}
 }
 
+@font-face{font-family:"Special Elite";font-weight:400;font-display:swap;src:url("/mathlab/fonts/special-elite-400.woff2") format("woff2")}
+:root,:root[data-theme="light"]{--paper:#eef4f5;--card:#fffdf8;--muted:#4f4442;--line:#b9c9cf;--grid-minor:#d6e5ea;--grid-major:#b7d0d9;--manila:#ecd49c;--manila-edge:#b8954b;--water:#3d8db0;--ring:rgba(61,141,176,.34);--stamp:#b3191a;--index:#fffefb;--rule:#c9dcea;--margin-line:#e7a3a3;--note:#fff1a1;--note-strip:#f4df73;--note-ink:#1f1415;--tape:rgba(255,255,255,.62);--seal:#b3191a;--on-seal:#fff}
+:root[data-theme="dark"]{--paper:#0f2c44;--card:#153a57;--ink:#eef6fb;--muted:#b9cfdd;--line:#4d7898;--accent:#ff8f84;--accent-ink:#ffa39a;--field:#0c2337;--shadow:#06182a;--focus:#ffd56b;--grid-minor:rgba(150,205,240,.10);--grid-major:rgba(150,205,240,.22);--manila:#1f4c6f;--manila-edge:#8cc0de;--water:#6cc6ec;--ring:rgba(108,198,236,.30);--stamp:#ffa39a;--index:#173f5f;--rule:rgba(150,205,240,.22);--margin-line:rgba(255,143,132,.6);--note:#f1df7c;--note-strip:#e2cc5c;--note-ink:#1f1415;--tape:rgba(200,230,250,.22);--seal:#d9473f;--on-seal:#fff}
+:root[data-theme="contrast"]{--grid-minor:transparent;--grid-major:transparent;--manila:#000;--manila-edge:#fff;--water:#ffe400;--ring:transparent;--stamp:#ffe400;--index:#000;--rule:transparent;--margin-line:transparent;--note:#000;--note-strip:#000;--note-ink:#fff;--tape:transparent;--seal:#ffe400;--on-seal:#000}
+:root{--type:"Special Elite",var(--mono)}
+:root[data-font="dyslexic"]{--type:"OpenDyslexic",sans-serif}
+body{background-color:var(--paper);background-image:linear-gradient(var(--grid-major) 1px,transparent 1px),linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),linear-gradient(var(--grid-minor) 1px,transparent 1px),linear-gradient(90deg,var(--grid-minor) 1px,transparent 1px);background-size:60px 60px,60px 60px,12px 12px,12px 12px}
+.folder{max-width:44rem;margin:2.6rem auto 0;padding:0 1rem}
+.folder-tab{display:inline-block;margin:0 0 -1.5px 1.2rem;padding:.45rem 1.1rem .35rem;background:var(--manila);border:1.5px solid var(--manila-edge);border-bottom:0;border-radius:.6rem .6rem 0 0;font:400 .95rem/1.2 var(--type);position:relative;z-index:1}
+.folder-body{position:relative;overflow:hidden;background:var(--manila);border:1.5px solid var(--manila-edge);border-radius:0 .6rem .6rem .6rem;padding:2.2rem 1.4rem 1.8rem;text-align:center;box-shadow:6px 6px 0 var(--manila-edge)}
+.folder-body::after{content:"";position:absolute;width:11rem;height:11rem;right:-2.6rem;top:-3rem;border-radius:50%;pointer-events:none;background:radial-gradient(circle,transparent 61%,var(--ring) 63%,transparent 67%,transparent 71%,var(--ring) 72%,transparent 74%)}
+.label{position:relative;display:inline-block;max-width:100%;background:var(--card);border:1px solid var(--manila-edge);padding:.9rem 1.3rem .8rem;margin:0 0 1.1rem}
+.label::before,.label::after{content:"";position:absolute;top:-.55rem;width:3.2rem;height:1.1rem;background:var(--tape);border:1px solid rgba(0,0,0,.06)}
+.label::before{left:-.9rem;transform:rotate(-24deg)}
+.label::after{right:-.9rem;transform:rotate(24deg)}
+.folder h1{font:400 clamp(1.85rem,6.4vw,2.9rem)/1.12 var(--type);margin:0;letter-spacing:.01em}
+.dek{font-style:italic;color:var(--ink);margin:0;position:relative}
+.sheet{position:relative;background:var(--card);border:1.5px solid var(--ink);padding:1.3rem 1.3rem;margin:2rem 0;box-shadow:5px 5px 0 -1.5px var(--card),5px 5px 0 0 var(--ink),10px 10px 0 -1.5px var(--card),10px 10px 0 0 var(--ink)}
+.clip{position:absolute;top:-1.6rem;left:1.4rem;width:1.5rem;height:4rem;color:var(--muted);transform:rotate(8deg)}
+:root[data-theme="contrast"] .sheet{box-shadow:none}
+:root[data-theme="contrast"] .folder-body{box-shadow:none}
+.sticky{background-color:var(--note);background-image:linear-gradient(var(--note-strip) 0 .55rem,transparent .55rem);color:var(--note-ink)}
+.sticky a{color:inherit}
+:root[data-theme="contrast"] .sticky{border:2px solid #ffe400}
+.typed{font-family:var(--type);font-weight:400}
+:root[data-theme="contrast"] .clip,:root[data-theme="contrast"] .label::before,:root[data-theme="contrast"] .label::after,:root[data-theme="contrast"] .folder-body::after{display:none}
+@media (max-width:34rem){.sheet{padding:1.1rem .9rem;box-shadow:4px 4px 0 -1.5px var(--card),4px 4px 0 0 var(--ink)}.folder-body{padding:1.8rem .9rem 1.4rem}}
+@media print{
+body{background:#fff}
+.clip,.label::before,.label::after,.folder-body::after{display:none!important}
+.folder-body,.sheet,.sticky,.folder-tab,.label{background:#fff!important;box-shadow:none!important}
+.folder-body{border:2px solid #000}
+.folder-tab,.label{border-color:#000!important}
+}
+
 .wrap{max-width:50rem;margin:0 auto;padding:0 1rem}
-.mast{text-align:center;padding:2.6rem 1rem 1rem}
-.kicker-love{text-transform:none!important;letter-spacing:.06em!important}
-.kicker{font:600 .8rem/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);margin:0}
-.mast h1{font-size:clamp(2.2rem,8vw,3.8rem);margin:.4rem 0 .6rem}
-.lede{max-width:36rem;margin:0 auto .7rem;font-size:1.15em;text-align:center}
-.trylede{text-align:center;margin:0 0 1rem}
+.folder.wide{max-width:50rem}
+.folder.wide h1{font-size:clamp(2.1rem,7vw,3.5rem)}
+.folder-tab .love{white-space:nowrap}
+.lede{max-width:36rem;margin:0 auto .7rem;font-size:1.12em;text-align:center;position:relative}
+.lede:last-child{margin-bottom:0}
+.trylede{text-align:center;margin:0 auto 1.4rem;max-width:36rem;background:var(--paper);padding:.2rem .5rem}
 .book a{color:inherit}
-h2{font-size:1.55rem;margin:2.6rem 0 1rem}
-.offers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
-.offer{background:var(--card);border:2px solid var(--ink);padding:1.1rem 1.1rem 1rem;box-shadow:4px 4px 0 var(--shadow)}
-:root[data-theme="contrast"] .offer{box-shadow:none}
-.offer h3{font-size:1.2rem;margin:0 0 .2rem}
-.offer .size{display:block;text-align:center;font:600 .74rem/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);margin:0 0 .6rem}
-.offer p{margin:0;font-size:.97em}
-.try{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.try a{display:block;background:var(--card);border:2px solid var(--ink);padding:1rem 1.1rem;text-decoration:none;color:var(--ink)}
-.try a:hover{background:var(--paper)}
-.try .t{display:block;font:700 1.2rem/1.2 var(--display);text-align:center}
-.try .m{display:block;text-align:center;font:600 .76rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
-.list ul{padding-left:1.2rem}
+.wrap>h2{display:table;margin:3rem auto 1.1rem;padding:.1rem .6rem;background:var(--paper);font:400 clamp(1.4rem,3.6vw,1.75rem)/1.2 var(--type)}
+.offers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem}
+.offer{background:var(--index);border:1.5px solid var(--ink);padding:1rem 1rem .9rem}
+.offer h3{font:400 1.25rem/1.2 var(--type);margin:0}
+.offer .size{display:block;text-align:center;font:600 .82rem/1.3 var(--sans);color:var(--accent-ink);margin:.25rem 0 0;padding-bottom:.55rem;border-bottom:2px solid var(--margin-line)}
+:root[data-theme="contrast"] .offer .size{border-bottom-color:#fff}
+.offer p{margin:.45rem 0 0;font-size:.97em;line-height:1.6;background-image:repeating-linear-gradient(transparent 0 calc(1.6em - 1px),var(--rule) calc(1.6em - 1px) 1.6em)}
+.try{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2.2rem}
+.file{display:block;color:var(--ink);text-decoration:none}
+.file-tab{display:inline-block;margin:0 0 -1.5px 1rem;padding:.4rem .9rem .3rem;background:var(--manila);border:1.5px solid var(--manila-edge);border-bottom:0;border-radius:.55rem .55rem 0 0;font:400 .9rem/1.2 var(--type);position:relative;z-index:1}
+.file-body{display:block;position:relative;overflow:hidden;background:var(--manila);border:1.5px solid var(--manila-edge);border-radius:0 .55rem .55rem .55rem;padding:1.3rem 1rem;text-align:center;box-shadow:5px 5px 0 var(--manila-edge)}
+.file-body::after{content:"";position:absolute;width:7rem;height:7rem;right:-2rem;bottom:-2.4rem;border-radius:50%;pointer-events:none;background:radial-gradient(circle,transparent 61%,var(--ring) 63%,transparent 67%)}
+.file-label{display:inline-block;background:var(--card);border:1px solid var(--manila-edge);padding:.7rem 1rem;font:400 1.25rem/1.2 var(--type)}
+.file:hover .file-label,.file:focus-visible .file-label{text-decoration:underline;text-underline-offset:.2em}
+:root[data-theme="contrast"] .file-body{box-shadow:none}
+:root[data-theme="contrast"] .file-body::after{display:none}
+.list ul{padding-left:1.2rem;margin:0}
 .list li{margin:.55rem 0}
-.book{text-align:center;border:3px double var(--ink);padding:1.2rem;margin:2.4rem 0 1rem;font-size:1.15em;font-weight:700;background:var(--card)}
-.srcs{font:400 .8rem/1.5 var(--sans);color:var(--muted);margin-top:2rem}
+.list.sheet{margin-top:0}
+.book{text-align:center;padding:1.1rem 1.2rem .9rem;margin:2.8rem auto 1rem;max-width:30rem;font-size:1.15em;font-weight:700}
+.srcs{font:400 .8rem/1.5 var(--sans);color:var(--muted);margin-top:2.2rem}
+.srcs p:first-child{margin-top:0}
 .srcs .cite{margin:0 0 .35rem;padding-left:1.6em;text-indent:-1.6em}
 .srcs a{color:inherit;word-break:break-word}
 @media (max-width:44rem){.offers{grid-template-columns:1fr}.try{grid-template-columns:1fr}}
 @media print{
 @page{size:letter;margin:.4in}
-body{font-size:9pt;line-height:1.36}
+body{font-size:9pt;line-height:1.33}
+.folder{margin-top:0}
+.folder-body{padding:.08in .15in .1in}
+.label{padding:.04in .15in;margin-bottom:.05in}
+.folder.wide h1{font-size:20pt}
 .lede{font-size:1em;margin-bottom:.04in}
-.trylede{margin:0 0 .06in}
-.try a{padding:.06in}
-.list ul{margin:.04in 0}
-.offer p{font-size:.95em}
-.mast{padding:0 0 .06in}.mast h1{font-size:24pt;margin:.04in 0}
-h2{font-size:13pt;margin:.13in 0 .06in}
-.offer{box-shadow:none;padding:.1in}
+.trylede{margin:0 auto .06in;padding:0}
+.wrap>h2{font-size:12.5pt;margin:.1in auto .05in;padding:0}
+.offer{padding:.08in;background:#fff}
+.offer .size{padding-bottom:.03in}
+.offer p{font-size:.95em;background:none;line-height:1.3}
 .offers{grid-template-columns:repeat(3,1fr);gap:.1in}
-.try{grid-template-columns:1fr 1fr}
-.try a::after{content:" (" attr(data-url) ")";display:block;text-align:center;font:400 7.5pt Arial,sans-serif}
-.list li{margin:.04in 0}
-.book{margin:.12in 0;padding:.08in}
-.srcs{font-size:7.5pt;margin-top:.1in}
+.try{grid-template-columns:1fr 1fr;gap:.15in;margin-top:.1in}
+.file-tab,.file-body,.file-label{background:#fff!important;box-shadow:none!important;border-color:#000!important}
+.offer .size{border-bottom-color:#000}
+.file-body{padding:.06in}
+.file-body::after{display:none}
+.file-label{padding:.03in .08in;font-size:11pt}
+.file::after{content:" (" attr(data-url) ")";display:block;text-align:center;font:400 7.5pt Arial,sans-serif;margin-top:.03in}
+.list.sheet{padding:.06in .1in;margin:0}
+.list li{margin:.025in 0}
+.book{margin:.08in auto;padding:.05in;border:2px solid #000}
+.srcs{font-size:7.5pt;margin-top:.06in;padding:.04in .1in}
+.folder-tab{font-size:8.5pt;padding:.03in .12in .02in}
+.offer h3{font-size:12pt}
+.offer .size{font-size:7.5pt;margin-top:.02in}
+.file-tab{font-size:8pt;padding:.02in .1in}
+.srcs{line-height:1.28}
+.srcs .cite{margin-bottom:.02in}
 .foot{display:none}
 }
 
@@ -124,17 +179,17 @@ h2{font-size:13pt;margin:.13in 0 .06in}
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <div class="topbar"><a href="/librarylyceum/guides.html">WEHS Library Lyceum</a> research guides presents...</div>
-<main id="main"><header class="mast"><p class="kicker kicker-love">Our Library <span aria-hidden="true">&lt;3s</span><span class="sr-only">loves</span> the Math Department</p><h1>Wanted: “Useless” Days</h1><p class="lede">The day after a test; the day before a break; planned sub days; standardized testing days; Super Bowl Monday; some random Thursday where you just can’t.</p><p class="lede">We all lose a few periods a year, even in math, despite its generous and reasonable pacing. Gimme them days, and I’ll give your students math practice conjoined with literacy and research skills.</p></header><div class="wrap">
+<main id="main"><header class="folder wide"><p class="folder-tab">Our Library <span class="love"><span aria-hidden="true">&lt;3s</span><span class="sr-only">loves</span></span> the Math Department</p><div class="folder-body"><div class="label"><h1>Wanted: “Useless” Days</h1></div><p class="lede">The day after a test; the day before a break; planned sub days; standardized testing days; Super Bowl Monday; some random Thursday where you just can’t.</p><p class="lede">We all lose a few periods a year, even in math, despite its generous and reasonable pacing. Gimme them days, and I’ll give your students math practice conjoined with literacy and research skills.</p></div></header><div class="wrap">
 <h2>(Exponential) Loving: It’s What I Got</h2><div class="offers">
 <section class="offer"><h3>Bellringers</h3><span class="size">5 minutes</span><p>Perfect for skeptics and those intimidated by my raw animal magnetism. I’ll provide a peculiar history of an actual number suitable for projection and/or analog work. Fair warning: bellringers end on a question your students can answer if you co-teach a full lesson with me!</p></section>
 <section class="offer"><h3>Case Studies</h3><span class="size">one period</span><p>We co-teach: I do shake my groove thang, you do whatever you’re comfortable doing (math, maybe?). Students use your curricular content to trace a claim back to its source.</p></section>
 <section class="offer"><h3>Projects</h3><span class="size">several days</span><p>Probably best suited for Statistics, Discrete, and the weeks after AP exams; I understand that you folks prefer to avoid multiday engagements. My two favored ideas: Numbers in the Archive and a deep dive into AI and statistical claims.</p></section>
 </div>
-<h2>Try One from Algebra 1</h2><p class="trylede">Here’s a sample for Algebra 1: Who Counted to 10,000? (bellringer) and The Case of the Missing Clause (case study).</p><div class="try"><a href="steps/" data-url="mistertlibrary.github.io/mathlab/steps"><span class="t">Who Counted to 10,000?</span><span class="m">Bellringer | 5 minutes</span></a><a href="missingclause/" data-url="mistertlibrary.github.io/mathlab/missingclause"><span class="t">The Case of the Missing Clause</span><span class="m">Case study | one period</span></a></div>
-<h2>How It Works</h2><div class="list"><ul><li>Your place or mine? I will come to you; you can also bring your class to the library, where we have room to spread out, move between stations, look out the windows at flora and fauna, and, perhaps, put real books in eager little hands.</li><li>Planning an absence? Hit me up after you’re done in Frontline and I’ll keep your class busy with something active.</li><li>You check the math; I run the show, but am happy to share the stage. Everything is readymade by default, with nothing to grade unless your gradebook feels fallow.</li></ul></div>
-<h2>Why It Counts</h2><div class="list"><ul><li>Students explain their reasoning in words and model real-world situations per the NJGPA’s interest in Expressing Mathematical Reasoning and Modeling and Applications.</li><li>Every case study is built on your course standards. The Algebra 1 sample practices units, linear equations and inequalities, and slope as a rate.</li><li>New Jersey’s funky new administrative code calls for information literacy “delivered by school library media specialists and/or classroom educators in partnership with school library media specialists.”</li></ul></div>
-<p class="book">Talk to me! <a href="mailto:sthompson@westex.org">Email me!</a> Send a carrier pigeon!</p>
-<div class="srcs"><p><strong>Sources</strong></p><p class="cite">New Jersey Department of Education. “Notice of Adoption Regarding N.J.A.C. 6A:8, Standards and Assessment.” <i>State of New Jersey</i>, 8 Oct. 2025, <a href="https://nj.gov/education/code/proposed/current/Notice_of_Adoption_Regarding_N.J.A.C._6A_8_Standards_and_Assessment.pdf">nj.gov/education/code/proposed/current/Notice_of_Adoption_Regarding_N.J.A.C._6A_8_Standards_and_Assessment.pdf</a>.</p><p class="cite">---. <i>Technical Report: New Jersey Graduation Proficiency Assessment, Spring 2025</i>. <i>State of New Jersey</i>, 2025, <a href="https://www.nj.gov/education/assessment/resources/docs/NJGPA_TechnicalReport2025.pdf">www.nj.gov/education/assessment/resources/docs/NJGPA_TechnicalReport2025.pdf</a>.</p><p class="cite">New Jersey Legislature. P.L. 2022, Chapter 138, An Act Concerning the New Jersey Student Learning Standards and Supplementing Title 18A of the New Jersey Statutes. 4 Jan. 2023. <i>New Jersey Legislature</i>, <a href="https://pub.njleg.gov/Bills/2022/AL22/138_.HTM">pub.njleg.gov/Bills/2022/AL22/138_.HTM</a>.</p></div>
+<h2>Try One from Algebra 1</h2><p class="trylede">Here’s a sample for Algebra 1: Who Counted to 10,000? (bellringer) and The Case of the Missing Clause (case study).</p><div class="try"><a class="file" href="steps/" data-url="mistertlibrary.github.io/mathlab/steps"><span class="file-tab">Bellringer | 5 minutes</span><span class="file-body"><span class="file-label">Who Counted to 10,000?</span></span></a><a class="file" href="missingclause/" data-url="mistertlibrary.github.io/mathlab/missingclause"><span class="file-tab">Case study | one period</span><span class="file-body"><span class="file-label">The Case of the Missing Clause</span></span></a></div>
+<h2>How It Works</h2><div class="list sheet"><ul><li>Your place or mine? I will come to you; you can also bring your class to the library, where we have room to spread out, move between stations, look out the windows at flora and fauna, and, perhaps, put real books in eager little hands.</li><li>Planning an absence? Hit me up after you’re done in Frontline and I’ll keep your class busy with something active.</li><li>You check the math; I run the show, but am happy to share the stage. Everything is readymade by default, with nothing to grade unless your gradebook feels fallow.</li></ul></div>
+<h2>Why It Counts</h2><div class="list sheet"><ul><li>Students explain their reasoning in words and model real-world situations per the NJGPA’s interest in Expressing Mathematical Reasoning and Modeling and Applications.</li><li>Every case study is built on your course standards. The Algebra 1 sample practices units, linear equations and inequalities, and slope as a rate.</li><li>New Jersey’s funky new administrative code calls for information literacy “delivered by school library media specialists and/or classroom educators in partnership with school library media specialists.”</li></ul></div>
+<p class="book sticky">Talk to me! <a href="mailto:sthompson@westex.org">Email me!</a> Send a carrier pigeon!</p>
+<div class="srcs sheet"><p><strong>Sources</strong></p><p class="cite">New Jersey Department of Education. “Notice of Adoption Regarding N.J.A.C. 6A:8, Standards and Assessment.” <i>State of New Jersey</i>, 8 Oct. 2025, <a href="https://nj.gov/education/code/proposed/current/Notice_of_Adoption_Regarding_N.J.A.C._6A_8_Standards_and_Assessment.pdf">nj.gov/education/code/proposed/current/Notice_of_Adoption_Regarding_N.J.A.C._6A_8_Standards_and_Assessment.pdf</a>.</p><p class="cite">---. <i>Technical Report: New Jersey Graduation Proficiency Assessment, Spring 2025</i>. <i>State of New Jersey</i>, 2025, <a href="https://www.nj.gov/education/assessment/resources/docs/NJGPA_TechnicalReport2025.pdf">www.nj.gov/education/assessment/resources/docs/NJGPA_TechnicalReport2025.pdf</a>.</p><p class="cite">New Jersey Legislature. P.L. 2022, Chapter 138, An Act Concerning the New Jersey Student Learning Standards and Supplementing Title 18A of the New Jersey Statutes. 4 Jan. 2023. <i>New Jersey Legislature</i>, <a href="https://pub.njleg.gov/Bills/2022/AL22/138_.HTM">pub.njleg.gov/Bills/2022/AL22/138_.HTM</a>.</p></div>
 </div></main>
 <footer class="foot"><p class="big">West Essex High School Library Media Center</p><p><a href="/librarylyceum/">WEHS Library Lyceum</a></p></footer>
 <button class="aa-btn" id="aa-btn" type="button" aria-expanded="false" aria-controls="aa-panel"><span aria-hidden="true">Aa</span><span class="sr-only">Reading preferences</span></button>
