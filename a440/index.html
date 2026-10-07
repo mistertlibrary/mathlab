@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Plus Work? | WEHS Library Lyceum</title>
+<meta name="description" content="A five-minute Precalculus bellringer: how A = 440 hertz became the world&#x27;s tuning note.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WEHS Library Lyceum">
+<meta property="og:title" content="A Plus Work? | WEHS Library Lyceum">
+<meta property="og:description" content="A five-minute Precalculus bellringer: how A = 440 hertz became the world&#x27;s tuning note.">
+<meta property="og:url" content="https://mistertlibrary.github.io/mathlab/a440/">
+<meta property="og:image" content="https://mistertlibrary.github.io/librarylyceum/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/librarylyceum/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/librarylyceum/favicon.png">
+<script>
+(function(){try{var d=document.documentElement,t=localStorage.getItem("lyceum-theme"),s=localStorage.getItem("lyceum-size"),f=localStorage.getItem("lyceum-font");if(t==="dark"||t==="contrast")d.dataset.theme=t;if(s==="medium"||s==="large")d.dataset.size=s;if(f==="sans"||f==="dyslexic")d.dataset.font=f}catch(e){}})();
+</script>
+<style>
+@font-face{font-family:"EB Garamond";font-style:normal;font-weight:400 800;font-display:swap;src:url("/librarylyceum/fonts/eb-garamond-400-800.woff2") format("woff2")}
+@font-face{font-family:"EB Garamond";font-style:italic;font-weight:400 800;font-display:swap;src:url("/librarylyceum/fonts/eb-garamond-400-800-italic.woff2") format("woff2")}
+@font-face{font-family:"Libre Franklin";font-style:normal;font-weight:100 900;font-display:swap;src:url("/librarylyceum/fonts/libre-franklin-100-900.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:600;font-display:swap;src:url("/librarylyceum/fonts/ibm-plex-mono-600.woff2") format("woff2")}
+@font-face{font-family:"OpenDyslexic";font-weight:400;font-display:swap;src:url("/librarylyceum/fonts/opendyslexic-400.woff2") format("woff2")}
+@font-face{font-family:"OpenDyslexic";font-weight:700;font-display:swap;src:url("/librarylyceum/fonts/opendyslexic-700.woff2") format("woff2")}
+:root,:root[data-theme="light"]{--paper:#f5f1ea;--card:#fffdf9;--ink:#1f1415;--muted:#5b4d4b;--line:#cfc4b8;--accent:#c52122;--accent-ink:#a81b1c;--on-accent:#fff;--band:#2f1414;--on-band:#f5f1ea;--focus:#1f5e7a;--field:#fff;--shadow:#1f1415}
+:root[data-theme="dark"]{--paper:#161112;--card:#211a1b;--ink:#f1e9e6;--muted:#c4b6b2;--line:#4d3f3e;--accent:#ff7466;--accent-ink:#ff8f84;--on-accent:#161112;--band:#0b0808;--on-band:#f1e9e6;--focus:#7cc4e4;--field:#130e0f;--shadow:#000}
+:root[data-theme="contrast"]{--paper:#000;--card:#000;--ink:#fff;--muted:#fff;--line:#fff;--accent:#ffe400;--accent-ink:#ffe400;--on-accent:#000;--band:#000;--on-band:#fff;--focus:#ffe400;--field:#000;--shadow:#000}
+:root{--fs:17px;--serif:"EB Garamond","Iowan Old Style",Palatino,Georgia,serif;--sans:"Libre Franklin","Franklin Gothic Medium",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;--body:var(--serif);--display:var(--serif)}
+:root[data-size="medium"]{--fs:19px}
+:root[data-size="large"]{--fs:21.5px}
+:root[data-font="sans"]{--body:var(--sans);--display:var(--sans)}
+:root[data-font="dyslexic"]{--body:"OpenDyslexic",sans-serif;--display:"OpenDyslexic",sans-serif;--sans:"OpenDyslexic",sans-serif;--mono:"OpenDyslexic",monospace;--serif:"OpenDyslexic",sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:1rem}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 var(--fs)/1.6 var(--body);font-variant-numeric:lining-nums}
+:root[data-theme="contrast"] body{background-image:none}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.15;text-align:center;overflow-wrap:break-word;margin:0 0 .5em}
+p,li{overflow-wrap:break-word}
+a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:.15em}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--card);color:var(--ink);padding:.6rem .9rem;border:2px solid var(--focus);font:600 .95rem var(--sans)}
+.skip:focus{left:1rem;top:1rem}
+.topbar{background:var(--band);color:var(--on-band);font:600 .78rem/1.4 var(--sans);text-align:center;padding:.5rem 1rem;letter-spacing:.02em}
+.topbar a{color:var(--on-band)}
+:root[data-theme="contrast"] .topbar{border-bottom:1px solid #fff}
+.foot{max-width:44rem;margin:3rem auto 0;padding:1.2rem 1rem 6rem;border-top:1px solid var(--line);text-align:center;font:400 .85rem/1.55 var(--sans);color:var(--muted)}
+.foot a{color:inherit}
+.foot .big{font:600 1rem/1.4 var(--display);color:var(--ink);margin:0 0 .2rem}
+:root[data-font="dyslexic"] .seg button[data-v="contrast"]{flex-basis:100%}
+.aa-btn{position:fixed;right:calc(1rem + env(safe-area-inset-right));bottom:calc(1rem + env(safe-area-inset-bottom));z-index:60;min-width:3rem;height:3rem;padding:0 .8rem;border-radius:999px;border:2px solid var(--ink);background:var(--card);color:var(--ink);font:700 1.05rem/1 var(--sans);cursor:pointer;box-shadow:3px 3px 0 var(--shadow)}
+.aa-panel{position:fixed;right:calc(1rem + env(safe-area-inset-right));bottom:calc(4.6rem + env(safe-area-inset-bottom));z-index:60;width:min(20rem,calc(100vw - 2rem));max-height:calc(100vh - 6rem);overflow:auto;background:var(--card);color:var(--ink);border:2px solid var(--ink);padding:.9rem 1rem;box-shadow:4px 4px 0 var(--shadow);font-family:var(--sans)}
+.aa-panel[hidden]{display:none}
+.aa-panel h2{font:700 .95rem/1.2 var(--sans);margin:0 0 .6rem}
+.aa-panel fieldset{border:0;margin:0 0 .75rem;padding:0;min-width:0}
+.aa-panel legend{font:700 .72rem/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.35rem;padding:0}
+.seg{display:flex;flex-wrap:wrap;gap:.35rem}
+.seg button{flex:1 1 0;min-width:0;padding:.45rem .35rem;border:1.5px solid var(--ink);border-radius:.3rem;background:transparent;color:var(--ink);font:600 .85rem/1.2 var(--sans);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+:root[data-font="dyslexic"] .seg button{font-size:.72rem}
+:root[data-font="dyslexic"] .seg button[data-v="dyslexic"]{flex-basis:100%}
+:root[data-theme="contrast"] .aa-btn,:root[data-theme="contrast"] .aa-panel{box-shadow:none}
+.btn{display:inline-block;font:700 .95rem/1.2 var(--sans);padding:.65rem 1rem;border:2px solid var(--ink);border-radius:.3rem;background:var(--ink);color:var(--paper);cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media print{
+.topbar,.aa-btn,.aa-panel,.skip,.noprint{display:none!important}
+:root,:root[data-theme]{--paper:#fff;--card:#fff;--ink:#000;--muted:#333;--line:#777;--accent:#000;--accent-ink:#000;--on-accent:#fff;--field:#fff;--shadow:#fff}
+body{font-size:11.5pt;background:#fff}
+a{color:#000}
+.foot{padding-bottom:0;margin-top:1.5rem}
+}
+
+@font-face{font-family:"Special Elite";font-weight:400;font-display:swap;src:url("/mathlab/fonts/special-elite-400.woff2") format("woff2")}
+:root,:root[data-theme="light"]{--paper:#eef4f5;--card:#fffdf8;--muted:#4f4442;--line:#b9c9cf;--grid-minor:#d6e5ea;--grid-major:#b7d0d9;--manila:#ecd49c;--manila-edge:#b8954b;--water:#3d8db0;--ring:rgba(61,141,176,.34);--stamp:#b3191a;--index:#fffefb;--rule:#c9dcea;--margin-line:#e7a3a3;--note:#fff1a1;--note-strip:#f4df73;--note-ink:#1f1415;--tape:rgba(255,255,255,.62);--seal:#b3191a;--on-seal:#fff}
+:root[data-theme="dark"]{--paper:#0f2c44;--card:#153a57;--ink:#eef6fb;--muted:#b9cfdd;--line:#4d7898;--accent:#ff8f84;--accent-ink:#ffa39a;--field:#0c2337;--shadow:#06182a;--focus:#ffd56b;--grid-minor:rgba(150,205,240,.10);--grid-major:rgba(150,205,240,.22);--manila:#1f4c6f;--manila-edge:#8cc0de;--water:#6cc6ec;--ring:rgba(108,198,236,.30);--stamp:#ffa39a;--index:#173f5f;--rule:rgba(150,205,240,.22);--margin-line:rgba(255,143,132,.6);--note:#f1df7c;--note-strip:#e2cc5c;--note-ink:#1f1415;--tape:rgba(200,230,250,.22);--seal:#d9473f;--on-seal:#fff}
+:root[data-theme="contrast"]{--grid-minor:transparent;--grid-major:transparent;--manila:#000;--manila-edge:#fff;--water:#ffe400;--ring:transparent;--stamp:#ffe400;--index:#000;--rule:transparent;--margin-line:transparent;--note:#000;--note-strip:#000;--note-ink:#fff;--tape:transparent;--seal:#ffe400;--on-seal:#000}
+:root{--type:"Special Elite",var(--mono)}
+:root[data-font="dyslexic"]{--type:"OpenDyslexic",sans-serif}
+body{background-color:var(--paper);background-image:linear-gradient(var(--grid-major) 1px,transparent 1px),linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),linear-gradient(var(--grid-minor) 1px,transparent 1px),linear-gradient(90deg,var(--grid-minor) 1px,transparent 1px);background-size:60px 60px,60px 60px,12px 12px,12px 12px}
+.folder{max-width:44rem;margin:2.6rem auto 0;padding:0 1rem}
+.folder-tab{display:inline-block;margin:0 0 -1.5px 1.2rem;padding:.45rem 1.1rem .35rem;background:var(--manila);border:1.5px solid var(--manila-edge);border-bottom:0;border-radius:.6rem .6rem 0 0;font:400 .95rem/1.2 var(--type);position:relative;z-index:1}
+.folder-body{position:relative;overflow:hidden;background:var(--manila);border:1.5px solid var(--manila-edge);border-radius:0 .6rem .6rem .6rem;padding:2.2rem 1.4rem 1.8rem;text-align:center;box-shadow:6px 6px 0 var(--manila-edge)}
+.folder-body::after{content:"";position:absolute;width:11rem;height:11rem;right:-2.6rem;top:-3rem;border-radius:50%;pointer-events:none;background:radial-gradient(circle,transparent 61%,var(--ring) 63%,transparent 67%,transparent 71%,var(--ring) 72%,transparent 74%)}
+.label{position:relative;display:inline-block;max-width:100%;background:var(--card);border:1px solid var(--manila-edge);padding:.9rem 1.3rem .8rem;margin:0 0 1.1rem}
+.label::before,.label::after{content:"";position:absolute;top:-.55rem;width:3.2rem;height:1.1rem;background:var(--tape);border:1px solid rgba(0,0,0,.06)}
+.label::before{left:-.9rem;transform:rotate(-24deg)}
+.label::after{right:-.9rem;transform:rotate(24deg)}
+.folder h1{font:400 clamp(1.85rem,6.4vw,2.9rem)/1.12 var(--type);margin:0;letter-spacing:.01em}
+.dek{font-style:italic;color:var(--ink);margin:0;position:relative}
+.sheet{position:relative;background:var(--card);border:1.5px solid var(--ink);padding:1.3rem 1.3rem;margin:2rem 0;box-shadow:5px 5px 0 -1.5px var(--card),5px 5px 0 0 var(--ink),10px 10px 0 -1.5px var(--card),10px 10px 0 0 var(--ink)}
+.clip{position:absolute;top:-1.6rem;left:1.4rem;width:1.5rem;height:4rem;color:var(--muted);transform:rotate(8deg)}
+:root[data-theme="contrast"] .sheet{box-shadow:none}
+:root[data-theme="contrast"] .folder-body{box-shadow:none}
+.sticky{background-color:var(--note);background-image:linear-gradient(var(--note-strip) 0 .55rem,transparent .55rem);color:var(--note-ink)}
+.sticky a{color:inherit}
+:root[data-theme="contrast"] .sticky{border:2px solid #ffe400}
+.typed{font-family:var(--type);font-weight:400}
+:root[data-theme="contrast"] .clip,:root[data-theme="contrast"] .label::before,:root[data-theme="contrast"] .label::after,:root[data-theme="contrast"] .folder-body::after{display:none}
+@media (max-width:34rem){.sheet{padding:1.1rem .9rem;box-shadow:4px 4px 0 -1.5px var(--card),4px 4px 0 0 var(--ink)}.folder-body{padding:1.8rem .9rem 1.4rem}}
+@media print{
+body{background:#fff}
+.clip,.label::before,.label::after,.folder-body::after{display:none!important}
+.folder-body,.sheet,.sticky,.folder-tab,.label{background:#fff!important;box-shadow:none!important}
+.folder-body{border:2px solid #000}
+.folder-tab,.label{border-color:#000!important}
+}
+
+.wrap{max-width:52rem;margin:0 auto;padding:0 1rem}
+.folder.wide{max-width:52rem}
+.folder.wide h1{font-size:clamp(2rem,6.8vw,3.3rem)}
+.slide{background:var(--index);margin:2.4rem 0 1.4rem;padding:1.4rem 1.6rem;font-size:clamp(1.05rem,2.3vw,1.4rem)}
+.slide .lead{font-weight:700;text-align:center;margin-top:0;padding-bottom:.6rem;border-bottom:2px solid var(--margin-line)}
+:root[data-theme="contrast"] .slide .lead{border-bottom-color:#fff}
+.qs{padding-left:1.5rem}
+.qs li{margin:.55rem 0}
+.axes{display:block;width:100%;max-width:20rem;margin:.6rem auto;color:var(--ink)}
+.row{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;margin:1.2rem 0}
+.reveal{margin:1.6rem 0;font-size:clamp(1rem,2.1vw,1.3rem)}
+.reveal[hidden]{display:none}
+.reveal h2{font:400 1.5em/1.15 var(--type)}
+.reveal.arrive{animation:arrive .45s ease-out both}
+@keyframes arrive{0%{opacity:0;transform:translateY(-1rem) rotate(-.6deg)}100%{opacity:1;transform:none}}
+.sep{border:0;border-top:1px dashed var(--line);margin:1.2rem 0}
+.small{font:400 .82rem/1.5 var(--sans);color:var(--muted)}
+.cite{margin:0 0 .35rem;padding-left:1.6em;text-indent:-1.6em}
+.cite a{color:inherit;word-break:break-word}
+.next{position:relative;margin:1.6rem auto .4rem;max-width:30rem;padding:3.9rem 1rem 1rem;text-align:center;background-color:var(--manila);border:1.5px solid var(--manila-edge);font:400 1.05em/1.4 var(--type);background-image:linear-gradient(to top right,transparent calc(50% - 1px),var(--manila-edge) calc(50% - 1px),var(--manila-edge) calc(50% + 1px),transparent calc(50% + 1px)),linear-gradient(to top left,transparent calc(50% - 1px),var(--manila-edge) calc(50% - 1px),var(--manila-edge) calc(50% + 1px),transparent calc(50% + 1px));background-size:50.1% 2.2rem;background-position:left top,right top;background-repeat:no-repeat}
+.seal{position:absolute;top:1.05rem;left:50%;width:2.3rem;height:2.3rem;margin-left:-1.15rem;border-radius:50%;background:var(--seal);color:var(--on-seal);display:grid;place-items:center;box-shadow:0 0 0 3px var(--manila),0 0 0 4.5px var(--seal)}
+.seal svg{width:.95rem;height:1.2rem;fill:currentColor}
+.notes{margin:2rem 0;padding:.9rem 1.1rem .6rem;font:400 .9rem/1.55 var(--sans)}
+.notes summary{cursor:pointer;font-weight:700}
+.print-only{display:none}
+@media (max-width:34rem){.slide{padding:1rem}}
+@media print{
+@page{size:letter;margin:.45in}
+body>*:not(.print-only){display:none!important}
+.print-only{display:block}
+.half{height:4.95in;box-sizing:border-box;border-bottom:1px dashed #000;padding:.05in 0 .1in;margin-bottom:.1in;font:10.5pt/1.38 Georgia,serif;overflow:hidden}
+.half:last-child{border-bottom:0}
+.half h2{font:400 16pt/1.15 "Special Elite",Georgia,serif;margin:0 0 .04in}
+.half .k{font:400 8.5pt/1.2 "Special Elite",Georgia,serif;text-align:center;margin:0}
+.half .name{display:flex;gap:.25in;font:600 8.5pt Arial,sans-serif;margin:.03in 0 .06in}
+.half .name span{flex:1;border-bottom:1px solid #000}
+.half .grid2{display:grid;grid-template-columns:1.55fr 1fr;gap:.2in;align-items:start}
+.half .qs{margin:.04in 0;padding-left:.22in}
+.half .qs li{margin:0 0 .3in}
+.half .axes{max-width:2.7in;margin:.1in 0 0;color:#000}
+.half p{margin:.04in 0}
+}
+
+.lead-block{padding-bottom:.5rem;border-bottom:2px solid var(--margin-line);margin-bottom:.6rem}
+.lead-block p{margin:.5rem 0}
+
+:root[data-theme="contrast"] .lead-block{border-bottom-color:#fff}
+@media print{.half .solo .qs li{margin:0 0 .34in}.half .hintro p{margin:.03in 0}.half.full{height:auto;border-bottom:0;break-after:page}.half.full .solo .qs li{margin:0 0 .9in}}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><a href="/librarylyceum/guides.html">WEHS Library Lyceum</a> research guides presents...</div>
+<main id="main"><header class="folder wide"><p class="folder-tab">Bellringer | Precalculus | Five minutes</p><div class="folder-body"><div class="label"><h1>A Plus Work?</h1></div></div></header><div class="wrap">
+<section class="slide sheet" aria-label="Bellringer"><svg class="clip" viewBox="0 0 24 64" aria-hidden="true" focusable="false"><path d="M16 20v30a6 6 0 0 1-12 0V11a8 8 0 0 1 16 0v35a3 3 0 0 1-6 0V20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><div class="lead-block"><p>For much of musical history, the note called A had no standard pitch. (In fact, no note had a standard pitch.) Musical notation was a, like, relative thing, man; it was more about relationships between notes (intervals) than the notes themselves. Singers and musicians would set pitch based on what was familiar or comfortable, so variations from artist to artist, town to town, city to city were commonplace. Far out, man. Far out.</p><p>Today, orchestras around the world tune A to roughly 440 hertz: 440 vibrations per second. Whence 440?</p></div><ol class="qs"><li>Model the tuning A with <em>y</em> = sin(2π · 440<em>t</em>), where <em>t</em> is in seconds. What is the period?</li><li>Each octave doubles the frequency. What is the frequency of the A one octave higher? Two octaves lower?</li><li>A piano splits each octave into 12 equal half steps, so each half step multiplies the frequency by 2<sup>1/12</sup>. Many Baroque ensembles tune one half step below A440 (don’t get me started on guitarists). What frequency is that?</li><li>Some sources call 432 hertz the “natural” A. How many half steps below 440 is 432? What evidence would you want before believing the claim?</li></ol></section>
+<div class="row"><button class="btn" type="button" id="rv-btn" aria-expanded="false" aria-controls="rv">Reveal answers</button><button class="btn ghost" type="button" id="pr-btn">Print half-sheets</button></div>
+<section class="reveal sheet" id="rv" hidden aria-labelledby="rv-h"><h2 id="rv-h">Answers</h2><ol class="qs"><li>1/440 of a second; about 0.0023 seconds.</li><li>880 hertz; 110 hertz.</li><li>440 ÷ 2<sup>1/12</sup>, about 415.3 hertz. Baroque groups call it 415.</li><li>12 · log₂(440/432), about 0.32 of a half step. Good evidence would come from historical records and controlled studies.</li></ol><hr class="sep"><p>Today, standard concert pitch sets the A above middle C, or A4, to 440 hertz. Every other note on the chromatic scale is derived from this value.</p><p>During the Baroque Era, A4 could fall anywhere between roughly 390 and 480 hertz depending on the tuning fork or organ pipe used. Northern German cathedral organs created brighter tones (with A closer to 480 hertz) ideal for stone structures; French court musicians opted for a warmer A (closer to 390 hertz) that was both easier on their voices and suited for intimate spaces.</p><p>The Society of German Natural Scientists and Physicians recommended A440 as the standard in 1834. The French government set A at 435 hertz in 1859. In the 1870s, Italian composer Giuseppe Verdi advocated for 435 hertz; by the 1880s he leaned toward 432 hertz (for practical reasons, though later advocates would blend a considerable quantity of esoteric woo into the mix). A4 continued to vary within and between European countries for the entirety of the 19th century and much of the 20th. Meanwhile in the Anglosphere, the American music industry settled on A4 at 440 hertz sometime in the mid-1920s, and the American Standards Association formally recommended the value in 1936. In the UK, Sir James Swinburne, an electrical engineer and amateur musician, pushed for A440 on a practical basis: Britain’s 439 was a prime number, while 440 was easy to divide and to generate electronically.</p><p>The pivotal moment came just prior to the Second World War. In May 1939, the International Federation of the National Standardizing Associations (forerunner of today’s International Organization for Standardization, or ISO) held a conference in London, where each nation’s delegates weighed in. (The Americans and the Swiss mailed in their suggestions.) Pragmatism prevailed, and 440 hertz was unanimously adopted as the international recommendation. The ISO affirmed this suggestion in 1955 and again in 1975.</p><p>Today, A440 is common but not universal. Ensembles performing music from earlier eras tend to prefer a lower pitch; orchestras like the New York Philharmonic go a bit higher; New Age believers opt for 432 hertz when they align their chakras and heal their DNA and resonate with the universe (again, there is nothing magical about the 432 hertz pitch).</p><p class="next"><span class="seal" aria-hidden="true"><svg viewBox="0 0 16 20" aria-hidden="true" focusable="false"><path d="M8 1C8 1 2 8.5 2 13a6 6 0 0 0 12 0C14 8.5 8 1 8 1z"/></svg></span>A larger inquiry beckons: how does a number become a standard? Who gets to decide?</p><div class="small"><p><strong>Sources</strong></p><p class="cite">“Pitch.” <i>Encyclopaedia Britannica</i>, 7 Sept. 2026, <a href="https://www.britannica.com/art/pitch-music">www.britannica.com/art/pitch-music</a>.</p><p class="cite">“ISO 16:1975, Acoustics: Standard Tuning Frequency (Standard Musical Pitch).” <i>ISO</i>, International Organization for Standardization, Jan. 1975, <a href="https://www.iso.org/standard/3601.html">www.iso.org/standard/3601.html</a>.</p><p class="cite">Abbott, David. “2.4: Musical Intervals and Temperament.” <i>Understanding Sound</i>, Physics LibreTexts, 13 Dec. 2025, <a href="https://phys.libretexts.org/Bookshelves/Waves_and_Acoustics/Understanding_Sound_(Abbot)/02%3A_Perception_of_sound/2.04%3A_Musical_intervals_and_temperament">phys.libretexts.org/Bookshelves/Waves_and_Acoustics/Understanding_Sound_(Abbot)/02:_Perception_of_sound/2.04:_Musical_intervals_and_temperament</a>.</p><p class="cite">Lockhart, Ellen. “Tuning Sounds in Italy, 1750–1885.” <i>Nineteenth-Century Music Review</i>, vol. 22, no. 3, 2025, pp. 344–60, <a href="https://doi.org/10.1017/S1479409824000375">https://doi.org/10.1017/S1479409824000375</a>.</p><p class="cite">Rosenberg, Ruth E. “Perfect Pitch: 432 Hz Music and the Promise of Frequency.” <i>Journal of Popular Music Studies</i>, vol. 33, no. 1, 2021, <a href="https://doi.org/10.1525/jpms.2021.33.1.137">https://doi.org/10.1525/jpms.2021.33.1.137</a>.</p></div></section>
+<details class="notes sticky"><summary>Teacher notes</summary><ul><li>Standards: F.IF.B.4 (key features, including periodicity), F.LE.A.4 (logarithms), F.TF.B.5 (+) (model periodic phenomena), F.BF.B.5 (+) (exponents and logarithms as inverses).</li><li>Half steps between two pitches: <em>n</em> = 12 · log₂(<em>f</em>/440). One half step below 440 is 415.3 hertz; Juilliard’s Baroque ensemble is named Juilliard415. Cute, huh?</li><li>The 1939 conference met May 11 and 12 at BBC Broadcasting House under the International Standards Association. ISO’s 1955 document was a recommendation (R 16); ISO 16 replaced it in 1975 and was last confirmed in 2022.</li><li>Verdi backed 435 for his Requiem and later said a slightly lower pitch, 432, was easier on singers. The label “Verdi tuning” for 432 is a 1980s invention of the Schiller Institute.</li><li>The National Institute of Standards and Technology has broadcast A440 on radio station WWV since 1936, during minute 2 of every hour except the first hour of each UTC day. Fun to check out if time permits.</li></ul></details>
+</div></main>
+<footer class="foot"><p class="big">West Essex High School Library Media Center</p><p><a href="/librarylyceum/">WEHS Library Lyceum</a></p></footer>
+<div class="print-only" aria-hidden="true"><div class="half"><p class="k">Bellringer | Precalculus</p><h2>A Plus Work?</h2><div class="name"><span>Name</span><span>Period</span></div><div class="hintro"><p>For much of musical history, the note called A had no standard pitch. (In fact, no note had a standard pitch.) Musical notation was a, like, relative thing, man; it was more about relationships between notes (intervals) than the notes themselves. Singers and musicians would set pitch based on what was familiar or comfortable, so variations from artist to artist, town to town, city to city were commonplace. Far out, man. Far out.</p><p>Today, orchestras around the world tune A to roughly 440 hertz: 440 vibrations per second. Whence 440?</p></div><div class="solo"><ol class="qs"><li>Model the tuning A with <em>y</em> = sin(2π · 440<em>t</em>), where <em>t</em> is in seconds. What is the period?</li><li>Each octave doubles the frequency. What is the frequency of the A one octave higher? Two octaves lower?</li><li>A piano splits each octave into 12 equal half steps, so each half step multiplies the frequency by 2<sup>1/12</sup>. Many Baroque ensembles tune one half step below A440 (don’t get me started on guitarists). What frequency is that?</li><li>Some sources call 432 hertz the “natural” A. How many half steps below 440 is 432? What evidence would you want before believing the claim?</li></ol></div></div><div class="half"><p class="k">Bellringer | Precalculus</p><h2>A Plus Work?</h2><div class="name"><span>Name</span><span>Period</span></div><div class="hintro"><p>For much of musical history, the note called A had no standard pitch. (In fact, no note had a standard pitch.) Musical notation was a, like, relative thing, man; it was more about relationships between notes (intervals) than the notes themselves. Singers and musicians would set pitch based on what was familiar or comfortable, so variations from artist to artist, town to town, city to city were commonplace. Far out, man. Far out.</p><p>Today, orchestras around the world tune A to roughly 440 hertz: 440 vibrations per second. Whence 440?</p></div><div class="solo"><ol class="qs"><li>Model the tuning A with <em>y</em> = sin(2π · 440<em>t</em>), where <em>t</em> is in seconds. What is the period?</li><li>Each octave doubles the frequency. What is the frequency of the A one octave higher? Two octaves lower?</li><li>A piano splits each octave into 12 equal half steps, so each half step multiplies the frequency by 2<sup>1/12</sup>. Many Baroque ensembles tune one half step below A440 (don’t get me started on guitarists). What frequency is that?</li><li>Some sources call 432 hertz the “natural” A. How many half steps below 440 is 432? What evidence would you want before believing the claim?</li></ol></div></div></div>
+<button class="aa-btn" id="aa-btn" type="button" aria-expanded="false" aria-controls="aa-panel"><span aria-hidden="true">Aa</span><span class="sr-only">Reading preferences</span></button>
+<div class="aa-panel" id="aa-panel" role="group" aria-labelledby="aa-title" hidden>
+<h2 id="aa-title">Reading preferences</h2>
+<fieldset><legend>Text size</legend><div class="seg"><button type="button" data-dim="size" data-v="small">Small</button><button type="button" data-dim="size" data-v="medium">Medium</button><button type="button" data-dim="size" data-v="large">Large</button></div></fieldset>
+<fieldset><legend>Theme</legend><div class="seg"><button type="button" data-dim="theme" data-v="light">Light</button><button type="button" data-dim="theme" data-v="dark">Dark</button><button type="button" data-dim="theme" data-v="contrast">High contrast</button></div></fieldset>
+<fieldset><legend>Typeface</legend><div class="seg"><button type="button" data-dim="font" data-v="serif">Serif</button><button type="button" data-dim="font" data-v="sans">Sans</button><button type="button" data-dim="font" data-v="dyslexic">OpenDyslexic</button></div></fieldset>
+</div>
+<script>
+(function(){var d=document.documentElement,K={size:"lyceum-size",theme:"lyceum-theme",font:"lyceum-font"},D={size:"small",theme:"light",font:"serif"},b=document.getElementById("aa-btn"),p=document.getElementById("aa-panel");if(!b||!p)return;
+function cur(k){return d.dataset[k]||D[k]}
+function sync(){p.querySelectorAll("button[data-dim]").forEach(function(x){x.setAttribute("aria-pressed",String(cur(x.dataset.dim)===x.dataset.v))})}
+function set(k,v){if(v===D[k])delete d.dataset[k];else d.dataset[k]=v;try{localStorage.setItem(K[k],v)}catch(e){}sync()}
+function open(){p.hidden=false;b.setAttribute("aria-expanded","true");sync();var f=p.querySelector('button[aria-pressed="true"]');if(f)f.focus()}
+function close(r){p.hidden=true;b.setAttribute("aria-expanded","false");if(r)b.focus()}
+b.addEventListener("click",function(){p.hidden?open():close(false)});
+p.addEventListener("click",function(e){var x=e.target.closest("button[data-dim]");if(x)set(x.dataset.dim,x.dataset.v)});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!p.hidden)close(true)});
+document.addEventListener("click",function(e){if(!p.hidden&&!p.contains(e.target)&&!b.contains(e.target))close(false)});
+sync()})();
+(function(){var b=document.getElementById("rv-btn"),r=document.getElementById("rv");b.addEventListener("click",function(){var o=r.hidden;r.hidden=!o;b.setAttribute("aria-expanded",String(o));b.textContent=o?"Hide answers":"Reveal answers";if(o){r.classList.remove("arrive");void r.offsetWidth;r.classList.add("arrive");r.querySelector("h2").setAttribute("tabindex","-1");r.querySelector("h2").focus()}});document.getElementById("pr-btn").addEventListener("click",function(){window.print()})})();
+</script>
+</body>
+</html>
